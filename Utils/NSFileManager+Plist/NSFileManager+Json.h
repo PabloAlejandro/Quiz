@@ -1,5 +1,5 @@
 //
-//  NSFileManager+Plist.h
+//  NSFileManager+Json.h
 //  Quiz
 //
 //  Created by Pablo Alejandro Perez Martinez on 26/08/2016.
@@ -8,11 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSFileManager (Plist)
+@interface NSFileManager (Json)
 
 // Method to get content of plis file as an array of NSDictionary 
-- (id)readPlist:(NSString *)fileName;
+- (id)readJson:(NSString *)fileName;
 
-- (void)readPlistAsync:(NSString *)fileName completion:(void (^)(id content, NSError * error))completion;
+- (void)readJsonAsync:(NSString *)fileName completion:(void (^)(id content, NSError * error))completion;
 
 @end
