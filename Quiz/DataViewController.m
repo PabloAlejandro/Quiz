@@ -13,7 +13,6 @@
 
 @interface DataViewController ()
 
-@property (nonatomic, copy, readonly) NSArray * responses;
 @property (nonatomic, copy, readonly) NSString * question;
 
 @end
@@ -23,7 +22,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.dataLabel.text = self.question;
-    self.view.alpha = 0;
+    self.collectionView.alpha = 0;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -31,7 +30,7 @@
     
     __weak __typeof(self) weakSelf = self;
     [UIView animateWithDuration:.25 animations:^{
-        weakSelf.view.alpha = 1;
+        weakSelf.collectionView.alpha = 1;
     }];
 }
 
@@ -40,7 +39,7 @@
     
     __weak __typeof(self) weakSelf = self;
     [UIView animateWithDuration:.25 animations:^{
-        weakSelf.view.alpha = 0;
+        weakSelf.collectionView.alpha = 0;
     }];
 }
 
@@ -63,32 +62,26 @@
 - (void)setDataObject:(NSDictionary *)dataObject
 {
     _dataObject = dataObject;
-    _responses = [[dataObject objectForKey:@"responses"] shuffledArray];
     _question = [dataObject objectForKey:@"question"];
+    self.entries = [[dataObject objectForKey:@"responses"] shuffledArray];
 }
 
 #pragma mark - UITableViewDataSource
 
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return self.responses.count ? 1 : 0;
-}
-
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.responses.count;
-}
-
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     return [self cellAtIndexPath:indexPath
                   collectionView:collectionView
-                       imagePath:self.responses[indexPath.row]];
+                       imagePath:self.entries[indexPath.row]];
 }
 
 #pragma mark - UICollectionViewDelegate
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    [super collectionView:collectionView didSelectItemAtIndexPath:indexPath];
+    
     if([self.delegate respondsToSelector:@selector(userDidSelectResponse:forQuestion:)]) {
-        [self.delegate userDidSelectResponse:self.responses[indexPath.row] forQuestion:self.question];
+        [self.delegate userDidSelectResponse:self.entries[indexPath.row] forQuestion:self.question];
     }
 }
 
