@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ * Category class for creation for shuffled NSArray from an NSArray
+ */
+
 @interface NSArray (Shuffle)
 
 - (NSArray *)shuffledArray;

@@ -17,6 +17,7 @@ static NSString * const kStartSegue = @"StartSegue";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // If the quiz has been already started we go straight to the next view controller.
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
     if([delegate.quizController isStarted])
         [self performSegueWithIdentifier:kStartSegue sender:self];

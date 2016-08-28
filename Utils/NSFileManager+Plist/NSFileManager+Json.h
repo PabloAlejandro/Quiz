@@ -10,9 +10,10 @@
 
 @interface NSFileManager (Json)
 
-// Method to get content of plis file as an array of NSDictionary 
+// Method to get content of JSON file
 - (id)readJson:(NSString *)fileName;
 
+// Method to get content of JSON file aynchronously
 - (void)readJsonAsync:(NSString *)fileName completion:(void (^)(id content, NSError * error))completion;
 
 @end

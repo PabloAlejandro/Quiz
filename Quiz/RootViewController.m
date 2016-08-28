@@ -125,8 +125,6 @@
 
 - (void)goToPage:(NSUInteger)page
 {
-//    self.nextButton.enabled = false;
-    
     DataViewController *viewController = [self.modelController viewControllerAtIndex:page++
                                                                                   storyboard:self.storyboard];
     viewController.delegate = self;
@@ -213,8 +211,6 @@
 
 - (void)userDidSelectResponse:(NSString *)response forQuestion:(NSString *)question
 {
-//    self.nextButton.enabled = true;
-    
     self.response = response;
     self.question = question;
 }

@@ -61,7 +61,7 @@
 }
 
 - (NSUInteger)numberOfViewControllers {
-    return (u_int)[_pageData count];
+    return [_pageData count];
 }
 
 @end

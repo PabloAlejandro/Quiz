@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface QuizController : NSObject //<NSCoding>
+@interface QuizController : NSObject
 
 // init method not available
 - (instancetype)init  __attribute__((unavailable("Must use initWithFileName: instead.")));
@@ -49,12 +49,25 @@
 // Method to save current state
 - (void)saveState;
 
+// Name of the local JSON file
 @property (nonatomic, copy, readonly) NSString * fileName;
+
+// Array of the Quiz questions and response options
 @property (nonatomic, copy, readonly) NSArray <NSDictionary *> * questions;
+
+// Questions array sorted randomly
 @property (nonatomic, copy, readonly) NSArray <NSDictionary *> * randomQuestions;
+
+// Date when the Quiz started
 @property (nonatomic, strong, readonly) NSDate * startDate;
+
+// Current question index in the array of questions
 @property (nonatomic, assign, readonly) NSUInteger currentIndex;
+
+// Max time interval to finish the Quiz
 @property (nonatomic, assign, readonly) NSTimeInterval maxTimeInterval;
+
+// Wether or not the Quiz started
 @property (nonatomic, assign, readonly, getter=isStarted) BOOL started;
 
 @end
