@@ -29,7 +29,10 @@
 - (NSString *)userResponseForQuestion:(NSString *)question;
 
 // Method to save user's response
-- (BOOL)addResponse:(NSString *)response toQuestion:(NSString *)question;;
+- (BOOL)addResponse:(NSString *)response toQuestion:(NSString *)question;
+
+// Method to get the amount of responses given by the user
+- (NSUInteger)numberOfUserResponses;
 
 // Method to set the starting date
 - (void)start;

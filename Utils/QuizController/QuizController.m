@@ -102,6 +102,7 @@ static NSTimeInterval const maxTimeInterval = 2 * 60;
 
 - (NSString *)userResponseForQuestion:(NSString *)question;
 {
+    if(!question) {return nil;}
     return [self.responses objectForKey:question];
 }
 
@@ -136,6 +137,11 @@ static NSTimeInterval const maxTimeInterval = 2 * 60;
         points += point;
     }
     return points;
+}
+
+- (NSUInteger)numberOfUserResponses
+{
+    return [self.responses allKeys].count;
 }
 
 - (BOOL)finished
