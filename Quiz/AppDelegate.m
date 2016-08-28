@@ -7,8 +7,14 @@
 //
 
 #import "AppDelegate.h"
+#import "QuizController.h"
+
+static NSString *const kViewControllerQuizKey = @"ViewControllerQuizKey";
+static NSString *const kFileName = @"zquestions";
 
 @interface AppDelegate ()
+
+@property (nonatomic, strong, readwrite) QuizController * quizController;
 
 @end
 
@@ -17,6 +23,19 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    if([self shouldShowEndVC]) {
+
+        UIViewController *viewController = [[UIStoryboard storyboardWithName:@"Main"
+                                                                      bundle:[NSBundle mainBundle]]
+                                     instantiateViewControllerWithIdentifier:@"DoneViewController"];
+        
+        self.window.rootViewController = viewController;
+    }
+    
+    return YES;
+}
+
+- (BOOL)application:(UIApplication *)application willFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     return YES;
 }
 
@@ -40,6 +59,23 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    [self.quizController saveState];
+}
+
+#pragma mark - Private
+
+- (BOOL)shouldShowEndVC
+{
+    return [self.quizController finished];
+}
+
+#pragma mark - Lazy
+
+- (QuizController *)quizController {
+    if(!_quizController) {
+        _quizController = [[QuizController alloc] initWithFileName:kFileName];
+    }
+    return _quizController;
 }
 
 @end

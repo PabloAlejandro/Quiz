@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@class QuizController;
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
+@property (nonatomic, strong, readonly) QuizController * quizController;
 
 @end
 
