@@ -54,13 +54,7 @@
     // Set start date if not started
     [self.quizController start];
     
-    NSTimeInterval elapsed = fabs([self.quizController.startDate timeIntervalSinceNow]);
-    
-    NSInteger minutes = (self.quizController.maxTimeInterval - elapsed) / 60;
-    NSInteger seconds = (self.quizController.maxTimeInterval - elapsed) - minutes * 60;
-    
-    self.timeLabel.text = [NSString stringWithFormat:@"%lu min. %lu s.", minutes, seconds];
-    self.pageLabel.text = [NSString stringWithFormat:@"%lu of %lu", self.page + 1, self.modelController.numberOfViewControllers];
+    [self updateTimeLabel];
     
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1
                                                   target:self
@@ -73,21 +67,32 @@
 
 - (void)timerUpdated
 {
-    NSTimeInterval elapsed = fabs([self.quizController.startDate timeIntervalSinceNow]);
-    
-    NSInteger minutes = (self.quizController.maxTimeInterval - elapsed) / 60;
-    NSInteger seconds = (self.quizController.maxTimeInterval - elapsed) - minutes * 60;
-    
-    self.timeLabel.text = [NSString stringWithFormat:@"%lu min. %lu s.", minutes, seconds];
-    
+    [self updateTimeLabel];
     if([self.quizController finished]) {
         [self timeOut];
     }
 }
 
+- (void)updateTimeLabel
+{
+    NSTimeInterval elapsed = fabs([self.quizController.startDate timeIntervalSinceNow]);
+    
+    NSInteger minutes = (self.quizController.maxTimeInterval - elapsed) / 60;
+    NSInteger seconds = (self.quizController.maxTimeInterval - elapsed) - minutes * 60;
+    
+    if(minutes > 0)
+        self.timeLabel.text = [NSString stringWithFormat:@"%lu min. %lu s.", minutes, seconds];
+    else
+        self.timeLabel.text = [NSString stringWithFormat:@"%lu s.", seconds];
+    
+    self.timeLabel.backgroundColor = elapsed > 10 ? [UIColor whiteColor] : [UIColor redColor];
+}
+
 - (void)timeOut
 {
     [self stopTimer];
+    
+    self.timeLabel.text = @"Time out!";
     
     __weak __typeof(self) weakSelf = self;
     [UIAlertView showWithTitle:@"Quiz finished"
