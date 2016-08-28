@@ -85,7 +85,7 @@
     else
         self.timeLabel.text = [NSString stringWithFormat:@"%lu s.", seconds];
     
-    self.timeLabel.backgroundColor = elapsed > 10 ? [UIColor whiteColor] : [UIColor redColor];
+    self.timeLabel.textColor = elapsed > 10 ? [UIColor whiteColor] : [UIColor redColor];
 }
 
 - (void)timeOut
