@@ -1,0 +1,17 @@
+PODS:
+  - SDWebImage (3.8.1):
+    - SDWebImage/Core (= 3.8.1)
+  - SDWebImage/Core (3.8.1)
+  - UIAlertView+Blocks (0.9)
+
+DEPENDENCIES:
+  - SDWebImage (~> 3.7)
+  - UIAlertView+Blocks
+
+SPEC CHECKSUMS:
+  SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
+  UIAlertView+Blocks: a46c99c5144f6c5dbc7d62fd2a0678daceec89a3
+
+PODFILE CHECKSUM: e27f63e65089f30935c15dc61f994201240213e4
+
+COCOAPODS: 1.0.1
