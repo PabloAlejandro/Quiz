@@ -9,86 +9,170 @@
 #import "RootViewController.h"
 #import "ModelController.h"
 #import "DataViewController.h"
+#import "QuizController.h"
+#import "AppDelegate.h"
+#import "DoneViewController.h"
+#import <UIAlertView+Blocks/UIAlertView+Blocks.h>
 
-@interface RootViewController ()
+@interface RootViewController () <DataDelegate>
 
-@property (readonly, strong, nonatomic) ModelController *modelController;
+@property (nonatomic, strong) ModelController *modelController;
+@property (nonatomic, strong) NSTimer * timer;
+@property (nonatomic, assign) NSUInteger page;
+
 @end
 
 @implementation RootViewController
 
-@synthesize modelController = _modelController;
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-    // Configure the page view controller and add it as a child view controller.
-    self.pageViewController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStylePageCurl navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
-    self.pageViewController.delegate = self;
-
-    DataViewController *startingViewController = [self.modelController viewControllerAtIndex:0 storyboard:self.storyboard];
-    NSArray *viewControllers = @[startingViewController];
-    [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
-
-    self.pageViewController.dataSource = self.modelController;
+    
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
+    
+    self.page = self.quizController.currentIndex;
+    
+    self.pageViewController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
+    
+    [self goToPage:self.page];
 
     [self addChildViewController:self.pageViewController];
     [self.view addSubview:self.pageViewController.view];
-
-    // Set the page view controller's bounds using an inset rect so that self's view is visible around the edges of the pages.
-    CGRect pageViewRect = self.view.bounds;
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        pageViewRect = CGRectInset(pageViewRect, 40.0, 40.0);
-    }
-    self.pageViewController.view.frame = pageViewRect;
-
     [self.pageViewController didMoveToParentViewController:self];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    
+    CGFloat topPadding = 80;
+    CGFloat bottomPadding = 70;
+    self.pageViewController.view.frame = CGRectMake(0, topPadding * 1.2, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame) - topPadding - bottomPadding);
 }
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    // Set start date if not started
+    [self.quizController start];
+    
+    NSTimeInterval elapsed = fabs([self.quizController.startDate timeIntervalSinceNow]);
+    
+    NSInteger minutes = (self.quizController.maxTimeInterval - elapsed) / 60;
+    NSInteger seconds = (self.quizController.maxTimeInterval - elapsed) - minutes * 60;
+    
+    self.timeLabel.text = [NSString stringWithFormat:@"%lu min. %lu s.", minutes, seconds];
+    self.pageLabel.text = [NSString stringWithFormat:@"%lu of %lu", self.page + 1, self.modelController.numberOfViewControllers];
+    
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:1
+                                                  target:self
+                                                selector:@selector(timerUpdated)
+                                                userInfo:nil
+                                                 repeats:true];
+}
+
+#pragma mark - Private
+
+- (void)timerUpdated
+{
+    NSTimeInterval elapsed = fabs([self.quizController.startDate timeIntervalSinceNow]);
+    
+    NSInteger minutes = (self.quizController.maxTimeInterval - elapsed) / 60;
+    NSInteger seconds = (self.quizController.maxTimeInterval - elapsed) - minutes * 60;
+    
+    self.timeLabel.text = [NSString stringWithFormat:@"%lu min. %lu s.", minutes, seconds];
+    
+    if([self.quizController finished]) {
+        [self timeOut];
+    }
+}
+
+- (void)timeOut
+{
+    [self.timer invalidate];
+    self.timer = nil;
+    
+    __weak __typeof(self) weakSelf = self;
+    [UIAlertView showWithTitle:@"Quiz finished!"
+                       message:@"You have finished the Quiz"
+             cancelButtonTitle:@"Accept"
+             otherButtonTitles:nil
+                      tapBlock:^(UIAlertView * _Nonnull alertView, NSInteger buttonIndex) {
+                          [weakSelf endQuiz];
+                      }];
+}
+
+- (void)endQuiz
+{
+    DoneViewController *viewController = (DoneViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"DoneViewController"];
+    viewController.quizController = self.quizController;
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    delegate.window.rootViewController = viewController;
+}
+
+- (void)goToPage:(NSUInteger)page
+{
+    DataViewController *viewController = [self.modelController viewControllerAtIndex:page++
+                                                                                  storyboard:self.storyboard];
+    viewController.delegate = self;
+    
+    __weak __typeof(self) weakSelf = self;
+    [self.pageViewController setViewControllers:@[viewController]
+                                      direction:UIPageViewControllerNavigationDirectionForward
+                                       animated:NO
+                                     completion:^(BOOL finished) {
+                                         weakSelf.pageLabel.text = [NSString stringWithFormat:@"%lu of %lu", weakSelf.page+1, [weakSelf.modelController numberOfViewControllers]];
+                                     }];
+}
+
+- (void)goToNextQuestion
+{
+    if(self.page < [self.modelController numberOfViewControllers] - 1) {
+        self.page++;
+        [self goToPage:self.page];
+    }
+    else {
+        [self timeOut];
+    }
+}
+
+// Testing purpouses method, the user shouldn't be allowed to go back
+- (void)goToPreviousQuestion
+{
+    if(self.page > 0) {
+        self.page--;
+        [self goToPage:self.page];
+    }
+}
+
+#pragma mark - Getters
 
 - (ModelController *)modelController {
     // Return the model controller object, creating it if necessary.
     // In more complex implementations, the model controller may be passed to the view controller.
     if (!_modelController) {
-        _modelController = [[ModelController alloc] init];
+        _modelController = [[ModelController alloc] initWithQuizController:self.quizController];
     }
     return _modelController;
 }
 
-#pragma mark - UIPageViewController delegate methods
-
-- (UIPageViewControllerSpineLocation)pageViewController:(UIPageViewController *)pageViewController spineLocationForInterfaceOrientation:(UIInterfaceOrientation)orientation {
-    if (UIInterfaceOrientationIsPortrait(orientation) || ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)) {
-        // In portrait orientation or on iPhone: Set the spine position to "min" and the page view controller's view controllers array to contain just one view controller. Setting the spine position to 'UIPageViewControllerSpineLocationMid' in landscape orientation sets the doubleSided property to YES, so set it to NO here.
-        
-        UIViewController *currentViewController = self.pageViewController.viewControllers[0];
-        NSArray *viewControllers = @[currentViewController];
-        [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
-        
-        self.pageViewController.doubleSided = NO;
-        return UIPageViewControllerSpineLocationMin;
+- (QuizController *)quizController {
+    if(!_quizController) {
+        AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+        _quizController = delegate.quizController;
     }
+    return _quizController;
+}
 
-    // In landscape orientation: Set set the spine location to "mid" and the page view controller's view controllers array to contain two view controllers. If the current page is even, set it to contain the current and next view controllers; if it is odd, set the array to contain the previous and current view controllers.
-    DataViewController *currentViewController = self.pageViewController.viewControllers[0];
-    NSArray *viewControllers = nil;
+#pragma mark - DataDelegate
 
-    NSUInteger indexOfCurrentViewController = [self.modelController indexOfViewController:currentViewController];
-    if (indexOfCurrentViewController == 0 || indexOfCurrentViewController % 2 == 0) {
-        UIViewController *nextViewController = [self.modelController pageViewController:self.pageViewController viewControllerAfterViewController:currentViewController];
-        viewControllers = @[currentViewController, nextViewController];
-    } else {
-        UIViewController *previousViewController = [self.modelController pageViewController:self.pageViewController viewControllerBeforeViewController:currentViewController];
-        viewControllers = @[previousViewController, currentViewController];
+- (void)userDidSelectResponse:(NSString *)response forQuestion:(NSString *)question
+{
+    if([self.quizController responseIsCorrect:response question:question]) {
+        // TODO: Add animation or any feedback for the user about his/her response 
     }
-    [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
-
-
-    return UIPageViewControllerSpineLocationMid;
+    
+    if([self.quizController addResponse:response toQuestion:question]) {
+        [self goToNextQuestion];
+    }
 }
 
 @end

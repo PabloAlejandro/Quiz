@@ -8,9 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RootViewController : UIViewController <UIPageViewControllerDelegate>
+@class QuizController;
 
-@property (strong, nonatomic) UIPageViewController *pageViewController;
+@interface RootViewController : UIViewController
+
+@property (nonatomic, weak) IBOutlet UILabel * timeLabel;
+@property (nonatomic, weak) IBOutlet UILabel * pageLabel;
+@property (nonatomic, strong) UIPageViewController *pageViewController;
+@property (nonatomic, strong) QuizController * quizController;
 
 @end
 
