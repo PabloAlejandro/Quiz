@@ -7,11 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UCollectionViewController.h"
 
-@interface DataViewController : UIViewController
+@protocol DataDelegate <NSObject>
 
-@property (strong, nonatomic) IBOutlet UILabel *dataLabel;
-@property (strong, nonatomic) id dataObject;
+- (void)userDidSelectResponse:(NSString *)response forQuestion:(NSString *)question;
 
+@end
+
+@interface DataViewController : UCollectionViewController
+
+@property (nonatomic, weak) IBOutlet UILabel *dataLabel;
+@property (nonatomic, strong) NSDictionary * dataObject;
+@property (nonatomic, weak) id <DataDelegate> delegate;
 @end
 
