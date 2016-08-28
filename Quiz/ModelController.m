@@ -8,6 +8,9 @@
 
 #import "ModelController.h"
 #import "DataViewController.h"
+#import "QuizController.h"
+#import "RootViewController.h"
+#import "NSArray+Shuffle.h"
 
 /*
  A controller object that manages a simple model -- a collection of month names.
@@ -21,19 +24,24 @@
 
 @interface ModelController ()
 
-@property (readonly, strong, nonatomic) NSArray *pageData;
+@property (nonatomic, copy, readonly) NSArray *pageData;
+
 @end
 
 @implementation ModelController
 
-- (instancetype)init {
+- (instancetype)initWithQuizController:(QuizController *)quizController {
     self = [super init];
     if (self) {
         // Create the data model.
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        _pageData = [[dateFormatter monthSymbols] copy];
+        _quizController = quizController;
+        _pageData = [quizController.questions shuffledArray];
     }
     return self;
+}
+
+- (instancetype)init {
+    return [self initWithQuizController:nil];
 }
 
 - (DataViewController *)viewControllerAtIndex:(NSUInteger)index storyboard:(UIStoryboard *)storyboard {
@@ -41,7 +49,7 @@
     if (([self.pageData count] == 0) || (index >= [self.pageData count])) {
         return nil;
     }
-
+    
     // Create a new view controller and pass suitable data.
     DataViewController *dataViewController = [storyboard instantiateViewControllerWithIdentifier:@"DataViewController"];
     dataViewController.dataObject = self.pageData[index];
@@ -54,31 +62,8 @@
     return [self.pageData indexOfObject:viewController.dataObject];
 }
 
-#pragma mark - Page View Controller Data Source
-
-- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController
-{
-    NSUInteger index = [self indexOfViewController:(DataViewController *)viewController];
-    if ((index == 0) || (index == NSNotFound)) {
-        return nil;
-    }
-    
-    index--;
-    return [self viewControllerAtIndex:index storyboard:viewController.storyboard];
-}
-
-- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController
-{
-    NSUInteger index = [self indexOfViewController:(DataViewController *)viewController];
-    if (index == NSNotFound) {
-        return nil;
-    }
-    
-    index++;
-    if (index == [self.pageData count]) {
-        return nil;
-    }
-    return [self viewControllerAtIndex:index storyboard:viewController.storyboard];
+- (NSUInteger)numberOfViewControllers {
+    return (u_int)[_pageData count];
 }
 
 @end

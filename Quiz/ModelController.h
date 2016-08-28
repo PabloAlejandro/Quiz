@@ -8,12 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@class DataViewController;
+@class DataViewController, QuizController;
 
-@interface ModelController : NSObject <UIPageViewControllerDataSource>
+@interface ModelController : NSObject 
 
+- (instancetype)initWithQuizController:(QuizController *)quizController NS_DESIGNATED_INITIALIZER;
 - (DataViewController *)viewControllerAtIndex:(NSUInteger)index storyboard:(UIStoryboard *)storyboard;
 - (NSUInteger)indexOfViewController:(DataViewController *)viewController;
+- (NSUInteger)numberOfViewControllers;
+
+@property (nonatomic, strong) QuizController * quizController;
 
 @end
 
