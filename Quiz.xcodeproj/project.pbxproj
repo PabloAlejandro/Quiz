@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0908879C1BC88C5514129020 /* libPods-QuizTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1139CFE31DCB0C219C03C70C /* libPods-QuizTests.a */; };
+		5F5BC4F41D72E29E00E0255A /* JsonTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F5BC4F31D72E29E00E0255A /* JsonTests.m */; };
 		5F9DC4ED1D70B4BC00A1CA5A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9DC4EC1D70B4BC00A1CA5A /* main.m */; };
 		5F9DC4F01D70B4BC00A1CA5A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9DC4EF1D70B4BC00A1CA5A /* AppDelegate.m */; };
 		5F9DC4F31D70B4BC00A1CA5A /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9DC4F21D70B4BC00A1CA5A /* RootViewController.m */; };
@@ -43,6 +44,7 @@
 		1139CFE31DCB0C219C03C70C /* libPods-QuizTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-QuizTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		247049FE406E588E8C431C80 /* Pods-QuizTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuizTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QuizTests/Pods-QuizTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5259EA766A7AD488E59018AD /* Pods-Quiz.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quiz.release.xcconfig"; path = "Pods/Target Support Files/Pods-Quiz/Pods-Quiz.release.xcconfig"; sourceTree = "<group>"; };
+		5F5BC4F31D72E29E00E0255A /* JsonTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonTests.m; sourceTree = "<group>"; };
 		5F9DC4E81D70B4BC00A1CA5A /* Quiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F9DC4EC1D70B4BC00A1CA5A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5F9DC4EE1D70B4BC00A1CA5A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				5F9DC50B1D70B4BC00A1CA5A /* QuizTests.m */,
+				5F5BC4F31D72E29E00E0255A /* JsonTests.m */,
 				5F9DC50D1D70B4BC00A1CA5A /* Info.plist */,
 			);
 			path = QuizTests;
@@ -481,6 +484,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F9DC50C1D70B4BC00A1CA5A /* QuizTests.m in Sources */,
+				5F5BC4F41D72E29E00E0255A /* JsonTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
