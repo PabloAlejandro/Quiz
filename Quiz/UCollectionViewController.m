@@ -8,11 +8,11 @@
 
 #import "UCollectionViewController.h"
 
-static CGFloat const leftPadding = 10.0f;
-static CGFloat const rightPadding = 10.0f;
-static CGFloat const topPadding = 10.0f;
-static CGFloat const bottomPadding = 10.0f;
-//static NSTimeInterval const columns = 3;
+static CGFloat const kLeftPadding = 10.0f;
+static CGFloat const kRightPadding = 10.0f;
+static CGFloat const kTopPadding = 10.0f;
+static CGFloat const kBottomPadding = 10.0f;
+static NSTimeInterval const kDefaultColumns = 2;
 
 @interface UCollectionViewController ()
 
@@ -62,13 +62,13 @@ static CGFloat const bottomPadding = 10.0f;
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    CGFloat padding = (leftPadding + rightPadding) / 2;
+    CGFloat padding = (kLeftPadding + kRightPadding) / 2;
     return CGSizeMake((CGRectGetWidth(collectionView.frame) - padding * self.columns * 2) / self.columns, (CGRectGetWidth(collectionView.frame) - padding * self.columns * 2) / self.columns);
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
-    return UIEdgeInsetsMake(topPadding, leftPadding, bottomPadding, rightPadding);
+    return UIEdgeInsetsMake(kTopPadding, kLeftPadding, kBottomPadding, kRightPadding);
 }
 
 #pragma mark - Getters
@@ -76,7 +76,7 @@ static CGFloat const bottomPadding = 10.0f;
 - (NSUInteger)columns
 {
     if(_columns == 0) {
-        _columns = 2;
+        _columns = kDefaultColumns;
     }
     return _columns;
 }
