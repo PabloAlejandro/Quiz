@@ -34,17 +34,6 @@ static NSTimeInterval const maxTimeInterval = 2 * 60;
     if(self = [super init]) {
         
         _fileName = fileName;
-//        _content = [[NSFileManager defaultManager] readJson:fileName];
-//        NSMutableArray * questions = [NSMutableArray new];
-//        for(NSString * key in [_content allKeys]) {
-//            NSDictionary * dict = @{
-//                                    @"question" : key,
-//                                    @"responses" : [_content objectForKey:key] ? :[NSNull null]
-//                                    };
-//            [questions addObject:dict];
-//        }
-//        _questions = [questions copy];
-//        _responses = [NSMutableDictionary new];
         
         // Get data from last session
         NSDictionary * info = [ApplicationStateUtils getObjectProperty:fileName orDefault:nil];
