@@ -20,6 +20,9 @@
 @property (nonatomic, strong) NSTimer * timer;
 @property (nonatomic, assign) NSUInteger page;
 
+@property (nonatomic, strong) NSString * response;
+@property (nonatomic, strong) NSString * question;
+
 @end
 
 @implementation RootViewController
@@ -50,6 +53,8 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
+    self.pageLabel.text = [NSString stringWithFormat:@"%lu of %lu", self.page+1, [self.modelController numberOfViewControllers]];
     
     // Set start date if not started
     [self.quizController start];
@@ -120,6 +125,8 @@
 
 - (void)goToPage:(NSUInteger)page
 {
+//    self.nextButton.enabled = false;
+    
     DataViewController *viewController = [self.modelController viewControllerAtIndex:page++
                                                                                   storyboard:self.storyboard];
     viewController.delegate = self;
@@ -163,6 +170,26 @@
     }
 }
 
+#pragma mark - IBAction methods
+
+- (IBAction)nextButtonPressed:(id)sender
+{
+    if(!self.response || !self.question) {
+    
+        [UIAlertView showWithTitle:@"Quiz"
+                           message:@"Select an image before going to the next question, please."
+                 cancelButtonTitle:@"Accept"
+                 otherButtonTitles:nil
+                          tapBlock:nil];
+    }
+    else if([self.quizController addResponse:self.response toQuestion:self.question]) {
+        
+        self.response = nil;
+        self.question = nil;
+        [self goToNextQuestion];
+    }
+}
+
 #pragma mark - Getters
 
 - (ModelController *)modelController {
@@ -186,13 +213,10 @@
 
 - (void)userDidSelectResponse:(NSString *)response forQuestion:(NSString *)question
 {
-    if([self.quizController responseIsCorrect:response question:question]) {
-        // TODO: Add animation or any feedback for the user about his/her response 
-    }
+//    self.nextButton.enabled = true;
     
-    if([self.quizController addResponse:response toQuestion:question]) {
-        [self goToNextQuestion];
-    }
+    self.response = response;
+    self.question = question;
 }
 
 @end
