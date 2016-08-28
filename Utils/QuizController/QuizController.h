@@ -50,7 +50,8 @@
 - (void)saveState;
 
 @property (nonatomic, copy, readonly) NSString * fileName;
-@property (nonatomic, strong, readonly) NSArray <NSDictionary *> * questions;
+@property (nonatomic, copy, readonly) NSArray <NSDictionary *> * questions;
+@property (nonatomic, copy, readonly) NSArray <NSDictionary *> * randomQuestions;
 @property (nonatomic, strong, readonly) NSDate * startDate;
 @property (nonatomic, assign, readonly) NSUInteger currentIndex;
 @property (nonatomic, assign, readonly) NSTimeInterval maxTimeInterval;

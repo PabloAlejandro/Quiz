@@ -9,19 +9,23 @@
 #import "QuizController.h"
 #import "NSFileManager+Json.h"
 #import "ApplicationStateUtils.h"
+#import "NSArray+Shuffle.h"
 
 #define kContentKey                 @"Content"
 #define kFileNameKey                @"FileName"
 #define kResponsesKey               @"Responses"
 #define kQuestionsKey               @"Questions"
 #define kStartDateKey               @"StartDate"
+#define kRandomQuestionsKey         @"RandomQuestions"
 
 static NSTimeInterval const maxTimeInterval = 2 * 60;
 
 @interface QuizController ()
 
-@property (nonatomic, strong, readwrite) NSDate * startDate;
 @property (nonatomic, copy, readwrite) NSString * fileName;
+@property (nonatomic, copy, readwrite) NSArray <NSDictionary *> * questions;
+@property (nonatomic, copy, readwrite) NSArray <NSDictionary *> * randomQuestions;
+@property (nonatomic, strong, readwrite) NSDate * startDate;
 @property (nonatomic, strong, readwrite) NSDictionary * content;
 @property (nonatomic, strong) NSMutableDictionary * responses;
 
@@ -51,6 +55,9 @@ static NSTimeInterval const maxTimeInterval = 2 * 60;
             
             if([[info objectForKey:kStartDateKey] isKindOfClass:[NSDate class]])
                 _startDate = [info objectForKey:kStartDateKey];
+            
+            if([[info objectForKey:kRandomQuestionsKey] isKindOfClass:[NSArray class]])
+                _randomQuestions = [info objectForKey:kRandomQuestionsKey];
         }
         
         // If there wasn't any data we initialiase it
@@ -150,20 +157,6 @@ static NSTimeInterval const maxTimeInterval = 2 * 60;
     self.responses.count == self.questions.count;
 }
 
-#pragma mark - Getters
-
-- (BOOL)isStarted {
-    return self.startDate != nil;
-}
-
-- (NSUInteger)currentIndex {
-    return [self.responses allKeys].count;
-}
-
-- (NSTimeInterval)maxTimeInterval {
-    return maxTimeInterval;
-}
-
 - (void)saveState {
     
     NSMutableDictionary * info = [NSMutableDictionary new];
@@ -180,7 +173,31 @@ static NSTimeInterval const maxTimeInterval = 2 * 60;
     if(self.startDate)
         [info setObject:self.startDate forKey:kStartDateKey];
     
+    if(self.randomQuestions)
+        [info setObject:self.randomQuestions forKey:kRandomQuestionsKey];
+    
     [ApplicationStateUtils setObjectProperty:self.fileName value:info];
+}
+
+#pragma mark - Getters
+
+- (BOOL)isStarted {
+    return self.startDate != nil;
+}
+
+- (NSUInteger)currentIndex {
+    return [self.responses allKeys].count;
+}
+
+- (NSTimeInterval)maxTimeInterval {
+    return maxTimeInterval;
+}
+
+- (NSArray <NSDictionary *> *)randomQuestions {
+    if(!_randomQuestions) {
+        _randomQuestions = [self.questions shuffledArray];
+    }
+    return _randomQuestions;
 }
 
 @end

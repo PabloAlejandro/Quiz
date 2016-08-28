@@ -10,7 +10,6 @@
 #import "DataViewController.h"
 #import "QuizController.h"
 #import "RootViewController.h"
-#import "NSArray+Shuffle.h"
 
 /*
  A controller object that manages a simple model -- a collection of month names.
@@ -20,7 +19,6 @@
  
  There is no need to actually create view controllers for each page in advance -- indeed doing so incurs unnecessary overhead. Given the data model, these methods create, configure, and return a new view controller on demand.
  */
-
 
 @interface ModelController ()
 
@@ -35,7 +33,7 @@
     if (self) {
         // Create the data model.
         _quizController = quizController;
-        _pageData = [quizController.questions shuffledArray];
+        _pageData = quizController.randomQuestions;
     }
     return self;
 }
