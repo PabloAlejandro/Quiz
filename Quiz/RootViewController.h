@@ -14,6 +14,7 @@
 
 @property (nonatomic, weak) IBOutlet UILabel * timeLabel;
 @property (nonatomic, weak) IBOutlet UILabel * pageLabel;
+@property (nonatomic, weak) IBOutlet UIButton * nextButton;
 @property (nonatomic, strong) UIPageViewController *pageViewController;
 @property (nonatomic, strong) QuizController * quizController;
 

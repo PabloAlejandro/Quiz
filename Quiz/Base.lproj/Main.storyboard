@@ -76,24 +76,42 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iRw-uD-kUM">
-                                <rect key="frame" x="279" y="559" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iRw-uD-kUM">
+                                <rect key="frame" x="20" y="557" width="24" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RCJ-BT-qgo">
+                                <rect key="frame" x="439" y="550" width="141" height="30"/>
+                                <state key="normal" title="Save and go next &gt;&gt;">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextButtonPressed:" destination="703-4V-yAM" eventType="touchUpInside" id="uvd-9b-QsC"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.4274510145" green="0.7607843876" blue="0.94901967050000002" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
                             <constraint firstItem="6ln-tA-YxO" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="502-Ir-ELC" secondAttribute="leading" constant="20" id="9mn-8V-QtM"/>
+                            <constraint firstItem="IfR-02-kHw" firstAttribute="top" secondItem="RCJ-BT-qgo" secondAttribute="bottom" constant="20" id="JEf-Zg-ZFv"/>
+                            <constraint firstAttribute="trailing" secondItem="RCJ-BT-qgo" secondAttribute="trailing" constant="20" id="QgD-MC-jdp"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="6ln-tA-YxO" secondAttribute="trailing" constant="20" id="ba8-rT-GM4"/>
-                            <constraint firstItem="IfR-02-kHw" firstAttribute="top" secondItem="iRw-uD-kUM" secondAttribute="bottom" constant="20" id="llK-2k-V09"/>
+                            <constraint firstItem="iRw-uD-kUM" firstAttribute="leading" secondItem="502-Ir-ELC" secondAttribute="leading" constant="20" id="dQb-tP-yRE"/>
+                            <constraint firstItem="IfR-02-kHw" firstAttribute="top" secondItem="iRw-uD-kUM" secondAttribute="bottom" constant="25" id="llK-2k-V09"/>
                             <constraint firstItem="6ln-tA-YxO" firstAttribute="top" secondItem="I7W-xW-C47" secondAttribute="bottom" constant="20" id="qYr-vq-bVV"/>
                             <constraint firstItem="6ln-tA-YxO" firstAttribute="centerX" secondItem="502-Ir-ELC" secondAttribute="centerX" id="sOD-Zk-ue4"/>
                             <constraint firstItem="iRw-uD-kUM" firstAttribute="centerX" secondItem="502-Ir-ELC" secondAttribute="centerX" id="zGj-iL-uB8"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="zGj-iL-uB8"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
+                        <outlet property="nextButton" destination="RCJ-BT-qgo" id="5Kf-yc-JqK"/>
                         <outlet property="pageLabel" destination="iRw-uD-kUM" id="3dD-dF-OFs"/>
                         <outlet property="timeLabel" destination="6ln-tA-YxO" id="JXA-xn-eIr"/>
                     </connections>
@@ -179,7 +197,7 @@
                                 <color key="textColor" red="0.94343802432885904" green="0.94343802432885904" blue="0.94343802432885904" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4da-zr-7o8">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" canCancelContentTouches="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4da-zr-7o8">
                                 <rect key="frame" x="0.0" y="60" width="600" height="540"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="mHm-WZ-yoa">
