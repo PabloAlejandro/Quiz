@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0908879C1BC88C5514129020 /* libPods-QuizTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1139CFE31DCB0C219C03C70C /* libPods-QuizTests.a */; };
 		5F9DC4ED1D70B4BC00A1CA5A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9DC4EC1D70B4BC00A1CA5A /* main.m */; };
 		5F9DC4F01D70B4BC00A1CA5A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9DC4EF1D70B4BC00A1CA5A /* AppDelegate.m */; };
 		5F9DC4F31D70B4BC00A1CA5A /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9DC4F21D70B4BC00A1CA5A /* RootViewController.m */; };
@@ -16,6 +17,16 @@
 		5F9DC4FE1D70B4BC00A1CA5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F9DC4FD1D70B4BC00A1CA5A /* Assets.xcassets */; };
 		5F9DC5011D70B4BC00A1CA5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F9DC4FF1D70B4BC00A1CA5A /* LaunchScreen.storyboard */; };
 		5F9DC50C1D70B4BC00A1CA5A /* QuizTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9DC50B1D70B4BC00A1CA5A /* QuizTests.m */; };
+		5F9DC51A1D70B5D000A1CA5A /* NSFileManager+Json.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9DC5191D70B5D000A1CA5A /* NSFileManager+Json.m */; };
+		5F9DC51C1D70B60200A1CA5A /* zquestions.json in Resources */ = {isa = PBXBuildFile; fileRef = 5F9DC51B1D70B60200A1CA5A /* zquestions.json */; };
+		5F9DC5201D70BC4400A1CA5A /* QuizController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9DC51F1D70BC4400A1CA5A /* QuizController.m */; };
+		5F9DC5241D70C03C00A1CA5A /* ApplicationStateUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9DC5231D70C03C00A1CA5A /* ApplicationStateUtils.m */; };
+		5F9DC5281D71011700A1CA5A /* DoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9DC5271D71011700A1CA5A /* DoneViewController.m */; };
+		5FB753F71D71ACBC00625547 /* CollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FB753F61D71ACBC00625547 /* CollectionCell.m */; };
+		5FB753FA1D71AD5B00625547 /* UCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FB753F91D71AD5B00625547 /* UCollectionViewController.m */; };
+		5FB754011D71BC2A00625547 /* NSArray+Shuffle.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FB754001D71BC2A00625547 /* NSArray+Shuffle.m */; };
+		5FED55821D718ACB0086FB24 /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FED55811D718ACB0086FB24 /* StartViewController.m */; };
+		C99A2ADEEC2F597A41798FB8 /* libPods-Quiz.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E1A2680505342450CCB9F37 /* libPods-Quiz.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +40,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1139CFE31DCB0C219C03C70C /* libPods-QuizTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-QuizTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		247049FE406E588E8C431C80 /* Pods-QuizTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuizTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QuizTests/Pods-QuizTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5259EA766A7AD488E59018AD /* Pods-Quiz.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quiz.release.xcconfig"; path = "Pods/Target Support Files/Pods-Quiz/Pods-Quiz.release.xcconfig"; sourceTree = "<group>"; };
 		5F9DC4E81D70B4BC00A1CA5A /* Quiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F9DC4EC1D70B4BC00A1CA5A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5F9DC4EE1D70B4BC00A1CA5A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -46,6 +60,26 @@
 		5F9DC5071D70B4BC00A1CA5A /* QuizTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuizTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F9DC50B1D70B4BC00A1CA5A /* QuizTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuizTests.m; sourceTree = "<group>"; };
 		5F9DC50D1D70B4BC00A1CA5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5F9DC5181D70B5D000A1CA5A /* NSFileManager+Json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSFileManager+Json.h"; path = "Utils/NSFileManager+Plist/NSFileManager+Json.h"; sourceTree = "<group>"; };
+		5F9DC5191D70B5D000A1CA5A /* NSFileManager+Json.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSFileManager+Json.m"; path = "Utils/NSFileManager+Plist/NSFileManager+Json.m"; sourceTree = "<group>"; };
+		5F9DC51B1D70B60200A1CA5A /* zquestions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = zquestions.json; sourceTree = "<group>"; };
+		5F9DC51E1D70BC4400A1CA5A /* QuizController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QuizController.h; path = Utils/QuizController/QuizController.h; sourceTree = "<group>"; };
+		5F9DC51F1D70BC4400A1CA5A /* QuizController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QuizController.m; path = Utils/QuizController/QuizController.m; sourceTree = "<group>"; };
+		5F9DC5221D70C03C00A1CA5A /* ApplicationStateUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ApplicationStateUtils.h; path = Utils/ApplicationStateUtils/ApplicationStateUtils.h; sourceTree = "<group>"; };
+		5F9DC5231D70C03C00A1CA5A /* ApplicationStateUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ApplicationStateUtils.m; path = Utils/ApplicationStateUtils/ApplicationStateUtils.m; sourceTree = "<group>"; };
+		5F9DC5261D71011700A1CA5A /* DoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DoneViewController.h; path = DoneViewcontroller/DoneViewController.h; sourceTree = "<group>"; };
+		5F9DC5271D71011700A1CA5A /* DoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DoneViewController.m; path = DoneViewcontroller/DoneViewController.m; sourceTree = "<group>"; };
+		5FB753F51D71ACBC00625547 /* CollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionCell.h; sourceTree = "<group>"; };
+		5FB753F61D71ACBC00625547 /* CollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionCell.m; sourceTree = "<group>"; };
+		5FB753F81D71AD5B00625547 /* UCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UCollectionViewController.h; sourceTree = "<group>"; };
+		5FB753F91D71AD5B00625547 /* UCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UCollectionViewController.m; sourceTree = "<group>"; };
+		5FB753FF1D71BC2A00625547 /* NSArray+Shuffle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSArray+Shuffle.h"; path = "Utils/NSArray+Shuffle/NSArray+Shuffle.h"; sourceTree = "<group>"; };
+		5FB754001D71BC2A00625547 /* NSArray+Shuffle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSArray+Shuffle.m"; path = "Utils/NSArray+Shuffle/NSArray+Shuffle.m"; sourceTree = "<group>"; };
+		5FED55801D718ACB0086FB24 /* StartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StartViewController.h; path = StartViewController/StartViewController.h; sourceTree = "<group>"; };
+		5FED55811D718ACB0086FB24 /* StartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StartViewController.m; path = StartViewController/StartViewController.m; sourceTree = "<group>"; };
+		7E1A2680505342450CCB9F37 /* libPods-Quiz.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Quiz.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D144B72A2A1E092CBF5A2D0 /* Pods-Quiz.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quiz.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Quiz/Pods-Quiz.debug.xcconfig"; sourceTree = "<group>"; };
+		C67300A1B3FA5359BF06FC38 /* Pods-QuizTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuizTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-QuizTests/Pods-QuizTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C99A2ADEEC2F597A41798FB8 /* libPods-Quiz.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0908879C1BC88C5514129020 /* libPods-QuizTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,9 +105,12 @@
 		5F9DC4DF1D70B4BC00A1CA5A = {
 			isa = PBXGroup;
 			children = (
+				5F9DC5161D70B52200A1CA5A /* Utils */,
 				5F9DC4EA1D70B4BC00A1CA5A /* Quiz */,
 				5F9DC50A1D70B4BC00A1CA5A /* QuizTests */,
 				5F9DC4E91D70B4BC00A1CA5A /* Products */,
+				A8EBDCD2FC842C951F827EDB /* Pods */,
+				AA1FD0146B86DF7C7F66F9A8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -87,14 +126,13 @@
 		5F9DC4EA1D70B4BC00A1CA5A /* Quiz */ = {
 			isa = PBXGroup;
 			children = (
+				5FB753F81D71AD5B00625547 /* UCollectionViewController.h */,
+				5FB753F91D71AD5B00625547 /* UCollectionViewController.m */,
+				5FED557F1D718ABE0086FB24 /* StartViewController */,
+				5F9DC5291D7179DD00A1CA5A /* QuizViewControllers */,
+				5F9DC5251D71010600A1CA5A /* DoneViewcontroller */,
 				5F9DC4EE1D70B4BC00A1CA5A /* AppDelegate.h */,
 				5F9DC4EF1D70B4BC00A1CA5A /* AppDelegate.m */,
-				5F9DC4F11D70B4BC00A1CA5A /* RootViewController.h */,
-				5F9DC4F21D70B4BC00A1CA5A /* RootViewController.m */,
-				5F9DC4F41D70B4BC00A1CA5A /* DataViewController.h */,
-				5F9DC4F51D70B4BC00A1CA5A /* DataViewController.m */,
-				5F9DC4F71D70B4BC00A1CA5A /* ModelController.h */,
-				5F9DC4F81D70B4BC00A1CA5A /* ModelController.m */,
 				5F9DC4FA1D70B4BC00A1CA5A /* Main.storyboard */,
 				5F9DC4FD1D70B4BC00A1CA5A /* Assets.xcassets */,
 				5F9DC4FF1D70B4BC00A1CA5A /* LaunchScreen.storyboard */,
@@ -107,6 +145,7 @@
 		5F9DC4EB1D70B4BC00A1CA5A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5F9DC51B1D70B60200A1CA5A /* zquestions.json */,
 				5F9DC4EC1D70B4BC00A1CA5A /* main.m */,
 			);
 			name = "Supporting Files";
@@ -121,6 +160,106 @@
 			path = QuizTests;
 			sourceTree = "<group>";
 		};
+		5F9DC5161D70B52200A1CA5A /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				5FB753FE1D71BC0200625547 /* NSArray+Shuffle */,
+				5F9DC5211D70C03600A1CA5A /* ApplicationStateUtils */,
+				5F9DC51D1D70BC3500A1CA5A /* QuizController */,
+				5F9DC5171D70B5C800A1CA5A /* NSFileManager+Plist */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		5F9DC5171D70B5C800A1CA5A /* NSFileManager+Plist */ = {
+			isa = PBXGroup;
+			children = (
+				5F9DC5181D70B5D000A1CA5A /* NSFileManager+Json.h */,
+				5F9DC5191D70B5D000A1CA5A /* NSFileManager+Json.m */,
+			);
+			name = "NSFileManager+Plist";
+			sourceTree = "<group>";
+		};
+		5F9DC51D1D70BC3500A1CA5A /* QuizController */ = {
+			isa = PBXGroup;
+			children = (
+				5F9DC51E1D70BC4400A1CA5A /* QuizController.h */,
+				5F9DC51F1D70BC4400A1CA5A /* QuizController.m */,
+			);
+			name = QuizController;
+			sourceTree = "<group>";
+		};
+		5F9DC5211D70C03600A1CA5A /* ApplicationStateUtils */ = {
+			isa = PBXGroup;
+			children = (
+				5F9DC5221D70C03C00A1CA5A /* ApplicationStateUtils.h */,
+				5F9DC5231D70C03C00A1CA5A /* ApplicationStateUtils.m */,
+			);
+			name = ApplicationStateUtils;
+			sourceTree = "<group>";
+		};
+		5F9DC5251D71010600A1CA5A /* DoneViewcontroller */ = {
+			isa = PBXGroup;
+			children = (
+				5F9DC5261D71011700A1CA5A /* DoneViewController.h */,
+				5F9DC5271D71011700A1CA5A /* DoneViewController.m */,
+			);
+			name = DoneViewcontroller;
+			sourceTree = "<group>";
+		};
+		5F9DC5291D7179DD00A1CA5A /* QuizViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				5F9DC4F11D70B4BC00A1CA5A /* RootViewController.h */,
+				5F9DC4F21D70B4BC00A1CA5A /* RootViewController.m */,
+				5F9DC4F71D70B4BC00A1CA5A /* ModelController.h */,
+				5F9DC4F81D70B4BC00A1CA5A /* ModelController.m */,
+				5F9DC4F41D70B4BC00A1CA5A /* DataViewController.h */,
+				5F9DC4F51D70B4BC00A1CA5A /* DataViewController.m */,
+				5FB753F51D71ACBC00625547 /* CollectionCell.h */,
+				5FB753F61D71ACBC00625547 /* CollectionCell.m */,
+			);
+			name = QuizViewControllers;
+			sourceTree = "<group>";
+		};
+		5FB753FE1D71BC0200625547 /* NSArray+Shuffle */ = {
+			isa = PBXGroup;
+			children = (
+				5FB753FF1D71BC2A00625547 /* NSArray+Shuffle.h */,
+				5FB754001D71BC2A00625547 /* NSArray+Shuffle.m */,
+			);
+			name = "NSArray+Shuffle";
+			sourceTree = "<group>";
+		};
+		5FED557F1D718ABE0086FB24 /* StartViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5FED55801D718ACB0086FB24 /* StartViewController.h */,
+				5FED55811D718ACB0086FB24 /* StartViewController.m */,
+			);
+			name = StartViewController;
+			sourceTree = "<group>";
+		};
+		A8EBDCD2FC842C951F827EDB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9D144B72A2A1E092CBF5A2D0 /* Pods-Quiz.debug.xcconfig */,
+				5259EA766A7AD488E59018AD /* Pods-Quiz.release.xcconfig */,
+				247049FE406E588E8C431C80 /* Pods-QuizTests.debug.xcconfig */,
+				C67300A1B3FA5359BF06FC38 /* Pods-QuizTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		AA1FD0146B86DF7C7F66F9A8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7E1A2680505342450CCB9F37 /* libPods-Quiz.a */,
+				1139CFE31DCB0C219C03C70C /* libPods-QuizTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -128,9 +267,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5F9DC5101D70B4BC00A1CA5A /* Build configuration list for PBXNativeTarget "Quiz" */;
 			buildPhases = (
+				7FD582C80096F6143D27D120 /* [CP] Check Pods Manifest.lock */,
 				5F9DC4E41D70B4BC00A1CA5A /* Sources */,
 				5F9DC4E51D70B4BC00A1CA5A /* Frameworks */,
 				5F9DC4E61D70B4BC00A1CA5A /* Resources */,
+				BAA4A63E022F4E8F995054EF /* [CP] Embed Pods Frameworks */,
+				1D066E05822E75E243BC5BBD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -145,9 +287,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5F9DC5131D70B4BC00A1CA5A /* Build configuration list for PBXNativeTarget "QuizTests" */;
 			buildPhases = (
+				213FC901D65F60A49709240C /* [CP] Check Pods Manifest.lock */,
 				5F9DC5031D70B4BC00A1CA5A /* Sources */,
 				5F9DC5041D70B4BC00A1CA5A /* Frameworks */,
 				5F9DC5051D70B4BC00A1CA5A /* Resources */,
+				074DE7DE7578D3FCAE1EDEC5 /* [CP] Embed Pods Frameworks */,
+				E8029677868FAF9FCE0F988B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -201,6 +346,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F9DC51C1D70B60200A1CA5A /* zquestions.json in Resources */,
 				5F9DC5011D70B4BC00A1CA5A /* LaunchScreen.storyboard in Resources */,
 				5F9DC4FE1D70B4BC00A1CA5A /* Assets.xcassets in Resources */,
 				5F9DC4FC1D70B4BC00A1CA5A /* Main.storyboard in Resources */,
@@ -216,16 +362,117 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		074DE7DE7578D3FCAE1EDEC5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QuizTests/Pods-QuizTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1D066E05822E75E243BC5BBD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Quiz/Pods-Quiz-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		213FC901D65F60A49709240C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7FD582C80096F6143D27D120 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BAA4A63E022F4E8F995054EF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Quiz/Pods-Quiz-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E8029677868FAF9FCE0F988B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QuizTests/Pods-QuizTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5F9DC4E41D70B4BC00A1CA5A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F9DC5241D70C03C00A1CA5A /* ApplicationStateUtils.m in Sources */,
+				5F9DC5201D70BC4400A1CA5A /* QuizController.m in Sources */,
 				5F9DC4F61D70B4BC00A1CA5A /* DataViewController.m in Sources */,
+				5FB753F71D71ACBC00625547 /* CollectionCell.m in Sources */,
 				5F9DC4F01D70B4BC00A1CA5A /* AppDelegate.m in Sources */,
 				5F9DC4F91D70B4BC00A1CA5A /* ModelController.m in Sources */,
+				5F9DC5281D71011700A1CA5A /* DoneViewController.m in Sources */,
+				5FB753FA1D71AD5B00625547 /* UCollectionViewController.m in Sources */,
 				5F9DC4ED1D70B4BC00A1CA5A /* main.m in Sources */,
+				5FED55821D718ACB0086FB24 /* StartViewController.m in Sources */,
+				5FB754011D71BC2A00625547 /* NSArray+Shuffle.m in Sources */,
 				5F9DC4F31D70B4BC00A1CA5A /* RootViewController.m in Sources */,
+				5F9DC51A1D70B5D000A1CA5A /* NSFileManager+Json.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,9 +598,11 @@
 		};
 		5F9DC5111D70B4BC00A1CA5A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9D144B72A2A1E092CBF5A2D0 /* Pods-Quiz.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Quiz/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pau.Quiz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -362,9 +611,11 @@
 		};
 		5F9DC5121D70B4BC00A1CA5A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5259EA766A7AD488E59018AD /* Pods-Quiz.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Quiz/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pau.Quiz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -373,6 +624,7 @@
 		};
 		5F9DC5141D70B4BC00A1CA5A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 247049FE406E588E8C431C80 /* Pods-QuizTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = QuizTests/Info.plist;
@@ -385,6 +637,7 @@
 		};
 		5F9DC5151D70B4BC00A1CA5A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C67300A1B3FA5359BF06FC38 /* Pods-QuizTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = QuizTests/Info.plist;
@@ -414,6 +667,7 @@
 				5F9DC5121D70B4BC00A1CA5A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5F9DC5131D70B4BC00A1CA5A /* Build configuration list for PBXNativeTarget "QuizTests" */ = {
 			isa = XCConfigurationList;
@@ -422,6 +676,7 @@
 				5F9DC5151D70B4BC00A1CA5A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
