@@ -85,18 +85,18 @@
     else
         self.timeLabel.text = [NSString stringWithFormat:@"%lu s.", seconds];
     
-    self.timeLabel.textColor = elapsed > 10 ? [UIColor whiteColor] : [UIColor redColor];
+    self.timeLabel.textColor = self.quizController.maxTimeInterval - elapsed > 10 ? [UIColor whiteColor] : [UIColor redColor];
 }
 
 - (void)timeOut
 {
     [self stopTimer];
     
-    self.timeLabel.text = @"Time out!";
+    self.timeLabel.text = @"Time up!";
     
     __weak __typeof(self) weakSelf = self;
     [UIAlertView showWithTitle:@"Quiz finished"
-                       message:@"Oops! Time is out, we are sorry you couldn't finish the Quiz on time."
+                       message:@"Oops! Time is up, we are sorry you couldn't finish the Quiz on time."
              cancelButtonTitle:@"Accept"
              otherButtonTitles:nil
                       tapBlock:^(UIAlertView * _Nonnull alertView, NSInteger buttonIndex) {
