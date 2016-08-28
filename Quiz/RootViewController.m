@@ -87,17 +87,22 @@
 
 - (void)timeOut
 {
-    [self.timer invalidate];
-    self.timer = nil;
+    [self stopTimer];
     
     __weak __typeof(self) weakSelf = self;
-    [UIAlertView showWithTitle:@"Quiz finished!"
-                       message:@"You have finished the Quiz"
+    [UIAlertView showWithTitle:@"Quiz finished"
+                       message:@"Oops! Time is out, we are sorry you couldn't finish the Quiz on time."
              cancelButtonTitle:@"Accept"
              otherButtonTitles:nil
                       tapBlock:^(UIAlertView * _Nonnull alertView, NSInteger buttonIndex) {
                           [weakSelf endQuiz];
                       }];
+}
+
+- (void)stopTimer
+{
+    [self.timer invalidate];
+    self.timer = nil;
 }
 
 - (void)endQuiz
@@ -130,7 +135,17 @@
         [self goToPage:self.page];
     }
     else {
-        [self timeOut];
+        
+        [self stopTimer];
+        
+        __weak __typeof(self) weakSelf = self;
+        [UIAlertView showWithTitle:@"Quiz finished"
+                           message:@"Congrats! You have finished the Quiz on time."
+                 cancelButtonTitle:@"Accept"
+                 otherButtonTitles:nil
+                          tapBlock:^(UIAlertView * _Nonnull alertView, NSInteger buttonIndex) {
+                              [weakSelf endQuiz];
+                          }];
     }
 }
 
